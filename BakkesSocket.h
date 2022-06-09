@@ -2,7 +2,7 @@
 
 #include "bakkesmod/plugin/bakkesmodplugin.h"
 
-#pragma comment( lib, "pluginsdk.lib" )
+extern std::shared_ptr<CVarManagerWrapper> _globalCvarManager;
 
 class BakkesSocket: public BakkesMod::Plugin::BakkesModPlugin
 {
