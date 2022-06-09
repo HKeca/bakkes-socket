@@ -1,4 +1,5 @@
 #include <iostream>
+#include "bakkesmod/plugin/bakkesmodplugin.h"
 
 int main()
 {
