@@ -13,5 +13,5 @@ set_target_properties(pluginsdk PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_SOURCE_DIR}/deps/inc"
 )
 
-add_executable(BakkesSocket main.cpp)
+add_library(BakkesSocket SHARED BakkesSocket.cpp)
 target_link_libraries(BakkesSocket pluginsdk)
