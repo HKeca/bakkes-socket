@@ -1,17 +1,21 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.17)
 
 project(BakkesSocket VERSION 1.0)
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD 17)
 
+file(GLOB_RECURSE SOURCE_FILES CONFIGURE_DEPENDS "src/*.h" "src/*.cpp")
 
-add_library(pluginsdk STATIC IMPORTED)
+add_library(BakkesSocket SHARED ${SOURCE_FILES})
 
-set_target_properties(pluginsdk PROPERTIES
-  IMPORTED_LOCATION "${CMAKE_SOURCE_DIR}/deps/lib/pluginsdk.lib"
-  INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_SOURCE_DIR}/deps/inc"
+set_target_properties(BakkesSocket PROPERTIES COMPILE_OPTIONS "/Zi")
+
+target_include_directories(
+  BakkesSocket PRIVATE
+  "${CMAKE_SOURCE_DIR}/deps/inc"
 )
 
-add_library(BakkesSocket SHARED BakkesSocket.cpp)
-target_link_libraries(BakkesSocket pluginsdk)
+target_link_libraries(
+  BakkesSocket PRIVATE
+  "${CMAKE_SOURCE_DIR}/deps/lib/pluginsdk.lib"
+)
