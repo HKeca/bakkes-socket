@@ -1,8 +1,10 @@
 #pragma once
 
-#include "bakkesmod/plugin/bakkesmodplugin.h"
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
 
-extern std::shared_ptr<CVarManagerWrapper> _globalCvarManager;
+#include "bakkesmod/plugin/bakkesmodplugin.h"
 
 class BakkesSocket: public BakkesMod::Plugin::BakkesModPlugin
 {
