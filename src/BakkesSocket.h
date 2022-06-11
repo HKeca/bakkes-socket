@@ -11,4 +11,6 @@ class BakkesSocket: public BakkesMod::Plugin::BakkesModPlugin
 public:
     virtual void onLoad();
     virtual void onUnLoad();
+
+    void statEvent(ServerWrapper caller, void* args);
 };
